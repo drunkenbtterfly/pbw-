@@ -61,7 +61,7 @@ include "config/database.php";
         </p>
       </div>
 
-      <div class="p-8 text-[100px] font-semibold font-roboto leading-[0.9] text-gray-900">
+      <div class="p-8 text-4xl md:text-[100px] font-semibold font-roboto leading-[0.9] text-gray-900">
         Website informasi untuk<br>
         Mahasiswa pengulangan kelas 3KA25
       </div>
@@ -130,17 +130,17 @@ include "config/database.php";
 
           <tbody class="divide-y divide-gray-100">
             <?php
-            $query_kegiatan = mysqli_query($conn, "SELECT * FROM kegiatan ORDER BY tanggal DESC");
+            $query_kegiatan = mysqli_query($conn, "SELECT * FROM kegiatan");
             while ($kegiatan = mysqli_fetch_assoc($query_kegiatan)):
             ?>
-            <tr class="bg-white hover:bg-gray-400 hover:shadow-md hover:-translate-y-[1px] transition-all duration-300">
-              <td class="p-4 font-medium text-gray-800">
-                <?= htmlspecialchars($kegiatan['nama_kegiatan']) ?>
-              </td>
-              <td class="p-4 text-gray-600">
-                <?= htmlspecialchars($kegiatan['tanggal']) ?>
-              </td>
-            </tr>
+              <tr class="bg-white hover:bg-gray-400 transition-all duration-300">
+                <td class="p-4 font-medium text-gray-800">
+                  <?= htmlspecialchars($kegiatan['nama_kegiatan']) ?>
+                </td>
+                <td class="p-4 text-gray-600">
+                  <?= htmlspecialchars($kegiatan['tanggal']) ?>
+                </td>
+              </tr>
             <?php endwhile; ?>
           </tbody>
         </table>
@@ -156,7 +156,7 @@ include "config/database.php";
             <tr>
               <th class="p-4">Kelas</th>
               <th class="p-4">Hari</th>
-              <th class="p-4">MK</th>
+              <th class="p-4">Mata Kuliah</th>
               <th class="p-4">Waktu</th>
               <th class="p-4">Ruang</th>
               <th class="p-4">Dosen</th>
@@ -165,21 +165,21 @@ include "config/database.php";
 
           <tbody class="divide-y divide-gray-100">
             <?php
-            $query_jadwal = mysqli_query($conn, "SELECT * FROM jadwal_kuliah ORDER BY hari, waktu");
+            $query_jadwal = mysqli_query($conn, "SELECT * FROM jadwal_kuliah");
             while ($jadwal = mysqli_fetch_assoc($query_jadwal)):
             ?>
-            <tr class="bg-white hover:bg-gray-400 hover:shadow-md hover:-translate-y-[1px] transition-all duration-300">
-              <td class="p-4 font-medium text-gray-800"><?= htmlspecialchars($jadwal['kelas']) ?></td>
-              <td class="p-4 text-gray-600"><?= htmlspecialchars($jadwal['hari']) ?></td>
-              <td class="p-4 font-semibold text-gray-900"><?= htmlspecialchars($jadwal['matakuliah']) ?></td>
-              <td class="p-4 text-gray-600"><?= htmlspecialchars($jadwal['waktu']) ?></td>
-              <td class="p-4">
-                <span class="px-3 py-1 rounded-full bg-gray-100 text-gray-700 text-xs">
-                  <?= htmlspecialchars($jadwal['ruang']) ?>
-                </span>
-              </td>
-              <td class="p-4 text-gray-700"><?= htmlspecialchars($jadwal['dosen']) ?></td>
-            </tr>
+              <tr class="bg-white hover:bg-gray-400 transition-all duration-300">
+                <td class="p-4 font-medium text-gray-800"><?= htmlspecialchars($jadwal['kelas']) ?></td>
+                <td class="p-4 text-gray-600"><?= htmlspecialchars($jadwal['hari']) ?></td>
+                <td class="p-4 font-semibold text-gray-900"><?= htmlspecialchars($jadwal['matakuliah']) ?></td>
+                <td class="p-4 text-gray-600"><?= htmlspecialchars($jadwal['waktu']) ?></td>
+                <td class="p-4">
+                  <span class="px-3 py-1 rounded-full bg-gray-100 text-gray-700 text-xs">
+                    <?= htmlspecialchars($jadwal['ruang']) ?>
+                  </span>
+                </td>
+                <td class="p-4 text-gray-700"><?= htmlspecialchars($jadwal['dosen']) ?></td>
+              </tr>
             <?php endwhile; ?>
           </tbody>
         </table>
