@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@600&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* Lexend */
+.font-lexend {
+    font-family: "Lexend", sans-serif;
+    font-weight: 600; /* sesuai yang di-load */
+    font-style: normal;
+}
+
+/* Roboto */
+.font-roboto {
+    font-family: "Roboto", sans-serif;
+    font-style: normal;
+}
+
+
+    .box {
+      width: 400px;
+      height: 350px;
+      border-radius: 40px;
+      flex-shrink: 0;
+      background: var(--box-color);
+    }
+
+    #marquee {
+      display: flex;
+      animation: marquee 22s linear infinite;
+      will-change: transform;
+    }
+
+    @keyframes marquee {
+      from {
+        transform: translateX(0);
+      }
+      to {
+        transform: translateX(calc(-1 * var(--marquee-width)));
+      }
+    }
+
+    .marquee-wrapper {
+  width: 100%;
+  overflow: hidden;
+}
+
+.marquee {
+  display: flex;
+  gap: 1.5rem;
+  width: max-content;
+  animation: marquee-full 25s linear infinite;
+}
+
+@keyframes marquee-full {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-33.333%);
+  }
+}
+
